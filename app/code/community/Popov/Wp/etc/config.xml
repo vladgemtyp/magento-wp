@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Popov_Wp>
+            <version>0.1.0</version>
+        </Popov_Wp>
+    </modules>
+
+    <global>
+
+        <blocks>
+            <popov_wp>
+                <class>Popov_Wp_Block</class>
+            </popov_wp>
+        </blocks>
+
+        <helpers>
+            <popov_wp>
+                <class>Popov_Wp_Helper</class>
+            </popov_wp>
+        </helpers>
+
+        <models>
+            <popov_wp>
+                <class>Popov_Wp_Model</class>
+                <resourceModel>popov_wp_resource</resourceModel>
+            </popov_wp>
+            <popov_wp_resource>
+                <class>Popov_Wp_Model_Resource</class>
+                <entities>
+                    <post>
+                        <table>wp_posts</table>
+                    </post>
+                </entities>
+            </popov_wp_resource>
+        </models>
+
+        <resources>
+            <popov_wp_write>
+                <connection>
+                    <use>popov_wp_database</use>
+                </connection>
+            </popov_wp_write>
+            <popov_wp_read>
+                <connection>
+                    <use>popov_wp_database</use>
+                </connection>
+            </popov_wp_read>
+            <popov_wp_setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </popov_wp_setup>
+
+            <popov_wp_database>
+                <connection>
+                    <host><![CDATA[localhost]]></host>
+                    <username><![CDATA[username]]></username>
+                    <password><![CDATA[password]]></password>
+                    <dbname><![CDATA[database]]></dbname>
+                    <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
+                    <model><![CDATA[mysql4]]></model>
+                    <type><![CDATA[pdo_mysql]]></type>
+                    <active>1</active>
+                </connection>
+            </popov_wp_database>
+        </resources>
+
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <popov_wp>
+                    <file>popov/wp.xml</file>
+                </popov_wp>
+            </updates>
+        </layout>
+
+        <translate>
+            <modules>
+                <Popov_Wp>
+                    <files>
+                        <default>Popov_Wp.csv</default>
+                    </files>
+                </Popov_Wp>
+            </modules>
+        </translate>
+    </frontend>
+
+
+    <default>
+        <popov_wp>
+            <settings>
+                <top_links_name>Blog</top_links_name>
+                <top_links_position>40</top_links_position>
+                <number_posts_on_home>5</number_posts_on_home>
+            </settings>
+        </popov_wp>
+    </default>
+</config>
